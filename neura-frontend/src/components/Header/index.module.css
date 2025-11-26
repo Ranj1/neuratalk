@@ -1,0 +1,42 @@
+/* Header Component Styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1.5rem 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerTitle h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profileBtn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.profileBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}

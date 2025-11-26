@@ -1,0 +1,66 @@
+/* Chat Component Styles */
+.chatgptContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.chatMainWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Loading Screen */
+.loadingScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chatgptContainer {
+    margin: 0;
+  }
+
+  .chatMainWrapper {
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+  }
+}

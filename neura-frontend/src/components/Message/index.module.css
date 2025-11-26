@@ -1,0 +1,135 @@
+/* Message Component Styles */
+.message {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  animation: messageSlideIn 0.3s ease-out;
+  align-items: flex-start;
+}
+
+.user {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.bot {
+  justify-content: flex-start;
+}
+
+.messageAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.messageAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.messageContent {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user .messageContent {
+  align-items: flex-end;
+}
+
+.bot .messageContent {
+  align-items: flex-start;
+}
+
+.messageText {
+  background: #f8f9fa;
+  padding: 10px 14px;
+  border-radius: 11px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+  line-height: 1.45;
+  font-size: 0.87rem;
+  color: #374151;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.user .messageContent .messageText {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.messageTimestamp {
+  font-size: 0.72rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.interim {
+  opacity: 0.7;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Markdown styles within message text */
+.messageText :global(h1),
+.messageText :global(h2),
+.messageText :global(h3) {
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.messageText :global(p) {
+  margin: 0.25rem 0;
+}
+
+.messageText :global(code) {
+  background: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.messageText :global(pre) {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.messageText :global(ul),
+.messageText :global(ol) {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.messageText :global(blockquote) {
+  border-left: 4px solid #667eea;
+  padding-left: 1rem;
+  margin: 0.5rem 0;
+  color: #6b7280;
+}

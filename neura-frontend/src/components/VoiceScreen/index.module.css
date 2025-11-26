@@ -1,0 +1,630 @@
+/* VoiceScreen Component Styles */
+.voiceScreen {
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Loading Screen */
+.loadingScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #ffffff;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingScreen p {
+  color: #6b7280;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.voiceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  text-align: center;
+}
+
+.backButton {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.backButton:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.voiceHeader h1 {
+  color: #374151;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.connected {
+  background: #10b981;
+}
+
+.status-dot.disconnected {
+  background: #ef4444;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Center Animation Section */
+.voiceAnimation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.waveformContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waveformCircle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+}
+
+.waveformCircle::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  opacity: 0.3;
+  animation: waveformPulse 2s infinite;
+}
+
+:global(.active) .waveformCircle::before {
+  animation: waveformPulse 1s infinite;
+}
+
+.waveformInner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667eea;
+  z-index: 1;
+  position: relative;
+}
+
+@keyframes waveformPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+}
+
+/* Bot Thinking Indicator */
+.botThinking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+}
+
+.thinkingText {
+  color: #667eea;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.thinkingDots {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.thinkingDots span {
+  animation: thinkingPulse 1.4s infinite ease-in-out;
+  color: #667eea;
+}
+
+.thinkingDots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.thinkingDots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.thinkingDots span:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes thinkingPulse {
+  0%, 80%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Control Buttons Section */
+.voiceControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.transcript-container {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.empty-transcript {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b7280;
+  text-align: center;
+}
+
+.empty-transcript h3 {
+  margin: 1rem 0 0.5rem;
+  color: #374151;
+}
+
+.empty-transcript p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.transcript-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transcript-message {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 12px;
+  animation: messageSlideIn 0.3s ease-out;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transcript-message.user {
+  background: #f8f9fa;
+  margin-left: 2rem;
+}
+
+.transcript-message.bot {
+  background: #ffffff;
+  margin-right: 2rem;
+  border: 1px solid #e5e7eb;
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.transcript-message.user .message-avatar {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.transcript-message.bot .message-avatar {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #374151;
+  word-wrap: break-word;
+}
+
+.voiceControls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.micButton, .cancelButton {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.micButton:hover, .cancelButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.recording {
+  background: #ef4444;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+  animation: recordingPulse 1.5s infinite;
+}
+
+.recording:hover {
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.cancelButton {
+  background: #6b7280;
+  box-shadow: 0 4px 16px rgba(107, 114, 128, 0.3);
+}
+
+.cancelButton:hover {
+  background: #4b5563;
+  box-shadow: 0 6px 20px rgba(75, 85, 99, 0.4);
+}
+
+.voiceScreen-button {
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.voiceScreen-button:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+}
+
+.voiceScreen-button.recording {
+  background: #ef4444;
+  animation: recordingPulse 1.5s infinite;
+}
+
+.voiceScreen-button.processing {
+  background: #f59e0b;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@keyframes recordingPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(239, 68, 68, 0.5);
+  }
+}
+
+.voiceScreen-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.recording-status {
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.auto-restart-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.restart-indicator {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.processing-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.processing-indicator {
+  width: 8px;
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.errorMessage {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+  animation: errorSlideIn 0.3s ease-out;
+}
+
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.errorMessage button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.errorMessage button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .voiceHeader {
+    padding: 1.5rem;
+  }
+  
+  .voiceHeader h1 {
+    font-size: 1.5rem;
+  }
+  
+  .backButton {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .voiceAnimation {
+    padding: 1rem;
+  }
+  
+  .waveformCircle {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .waveformInner {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .botThinking {
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+  }
+  
+  .thinkingText {
+    font-size: 1rem;
+  }
+  
+  .voiceControls {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .micButton, .cancelButton {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .voiceHeader {
+    padding: 1rem;
+  }
+  
+  .voiceHeader h1 {
+    font-size: 1.25rem;
+  }
+  
+  .backButton {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .voiceAnimation {
+    padding: 0.5rem;
+  }
+  
+  .waveformCircle {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .waveformInner {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .botThinking {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .thinkingText {
+    font-size: 0.9rem;
+  }
+  
+  .voiceControls {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .micButton, .cancelButton {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .errorMessage {
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+    bottom: 1rem;
+  }
+}

@@ -1,0 +1,384 @@
+/* Home Component Styles */
+.homeContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.homeContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+.heroContent {
+  text-align: left;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 2rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.badgeIcon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButtonPrimary {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #1a1a1a;
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+}
+
+.ctaButtonPrimary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.4);
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.ctaButtonSecondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.ctaButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animatedChatContainer {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  animation: chatSlideIn 0.8s ease-out;
+}
+
+@keyframes chatSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.chatHeader {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+}
+
+.chatAvatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatInfo h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.status {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.animatedChatWindow {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for animated chat */
+.animatedChatWindow::-webkit-scrollbar {
+  display: none;
+}
+
+.chatMessages1 {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scrollbar-width: none;
+}
+
+.messageBubble {
+  display: flex;
+  gap: 0.75rem;
+  animation: messageSlideIn 0.5s ease-out;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.user {
+  flex-direction: row-reverse;
+}
+
+.messageAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+:global(.user) .messageAvatar {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+:global(.bot) .messageAvatar {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.messageContent {
+  flex: 1;
+  max-width: 80%;
+}
+
+.messageText {
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #333;
+  word-wrap: break-word;
+}
+
+:global(.user) .messageText {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.typingIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #f0f0f0;
+  border-radius: 12px;
+}
+
+.typingDots {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.typingDots span {
+  width: 6px;
+  height: 6px;
+  background: #999;
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+.typingDots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typingDots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .heroContent {
+    text-align: center;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .heroActions {
+    justify-content: center;
+  }
+  
+  .animatedChatContainer {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeContainer {
+    padding: 1rem;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .ctaButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
