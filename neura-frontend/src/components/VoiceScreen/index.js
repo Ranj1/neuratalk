@@ -6,7 +6,7 @@ import API from "../../api";
 import styles from "./index.module.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 
-const SOCKET_URL = "http://localhost:3400";
+const SOCKET_URL = "process.env.REACT_APP_API_URL";
 
 const VoiceScreenStreaming = () => {
   const navigate = useNavigate();
