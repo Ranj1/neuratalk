@@ -136,14 +136,26 @@ The React app will open at `http://localhost:3000`
 
 ## Screenshots
 
+### Landing Page
+The welcome screen with AI assistant preview and quick access to sign in/sign up.
+
+![Landing Page](./screenshots/landing-page.png)
+
+### Authentication
+Login and registration modals with clean, modern design.
+
+![Login Modal](./screenshots/login-modal.png)
+![Register Modal](./screenshots/register-modal.png)
+
 ### Chat Interface
+Full chat interface with sidebar showing conversation history, message area with markdown support, and input controls.
+
 ![Chat Interface](./screenshots/chat-interface.png)
 
 ### Voice Conversation Mode
-![Voice Mode](./screenshots/voice-mode.png)
+Dedicated voice interface with animated microphone visualization and voice controls.
 
-### Authentication Modal
-![Auth Modal](./screenshots/auth-modal.png)
+![Voice Mode](./screenshots/voice-mode.png)
 
 ## API Details
 
